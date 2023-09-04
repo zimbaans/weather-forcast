@@ -1,2 +1,4 @@
-# A weather forcasting app developed by team zimbaans.
-git pull
+# A weather forcasting app developed by team zimbaans. 
+
+# nishanth has viewed.
+# somethinggit pull
