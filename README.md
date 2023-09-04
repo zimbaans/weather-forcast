@@ -1,4 +1,6 @@
-# A weather forcasting app developed by team zimbaans. 
 
-# nishanth has viewed.
-# somethinggit pull
+# React + Vite
+# Changes made by vikash
+# Kapil is our leader
+
+
