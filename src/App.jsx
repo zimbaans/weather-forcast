@@ -37,7 +37,6 @@ class App extends React.Component {
   };
 
 
-  
   makeApiCall = async city => {
     const api_data = await fetch(
       `https://api.openweathermap.org/data/2.5/forecast?q=${city}&APPID=6557810176c36fac5f0db536711a6c52`
@@ -68,6 +67,20 @@ class App extends React.Component {
     }
     return dayIndices;
   };
+
+
+  render() {
+    const WeatherBoxes = () => {
+      const weatherBoxes = this.state.days.slice(1).map(day => (
+        <li>
+          <WeatherBox {...day} />
+        </li>
+      ));
+
+      return <ul className='weather-box-list'>{weatherBoxes}</ul>;
+    };
+ }
+
 }
 
   
