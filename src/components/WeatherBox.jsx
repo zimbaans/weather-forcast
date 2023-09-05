@@ -19,5 +19,10 @@ export default class WeatherBox extends React.Component {
       });
   }
 
+  getDay = (date) => {
+    const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    return weekdays[new Date(date).getDay()];
+  };
+
 
 }
