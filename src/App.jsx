@@ -79,6 +79,17 @@ class App extends React.Component {
 
       return <ul className='weather-box-list'>{weatherBoxes}</ul>;
     };
+
+    return (
+      <div className='App'>
+        <header className='App-header'>
+          <MainWeatherWindow data={this.state.days[0]} city={this.state.city}>
+            <CityInput city={this.state.city} makeApiCall={this.makeApiCall.bind(this)} />
+            <WeatherBoxes />
+          </MainWeatherWindow>
+        </header>
+      </div>
+    );
  }
 
 }
