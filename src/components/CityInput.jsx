@@ -1,3 +1,4 @@
+
 import React from 'react';
 import './CityInput.css';
 
@@ -45,4 +46,5 @@ export default class CityInput extends React.Component {
   
 
     }
+   }
 }
