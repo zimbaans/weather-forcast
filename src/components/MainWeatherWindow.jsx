@@ -43,5 +43,3 @@ return (
       {this.props.children}
     </div>
   );
-}
-}
