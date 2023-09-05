@@ -1,1 +1,6 @@
-# A weather forcasting app developed by team zimbaans.
+
+# React + Vite
+# Changes made by vikash
+# Kapil is our leader
+
+
