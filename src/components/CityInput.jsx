@@ -8,7 +8,6 @@ export default class CityInput extends React.Component {
       const eventKey = e.which ? e.which : e.keyCode;
       const city = e.target.value;
 
-      
       if (eventKey === 13) {
         if (/^[a-zA-ZäöüÄÖÜß ]+$/.test(city)) {
           e.target.classList.add('loading');
@@ -20,7 +19,5 @@ export default class CityInput extends React.Component {
         e.target.value = '';
       }
     };
-
-    
   }
 }
