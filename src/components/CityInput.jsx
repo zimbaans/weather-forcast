@@ -47,4 +47,3 @@ export default class CityInput extends React.Component {
 
     }
    }
-}
