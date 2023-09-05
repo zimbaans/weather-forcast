@@ -23,6 +23,18 @@ export default class WeatherBox extends React.Component {
     const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     return weekdays[new Date(date).getDay()];
   };
+  render() {
+    const { date, temp } = this.props;
+    const { icon } = this.state;
+
+    return (
+      <div className='weather-box'>
+        <h1>{date ? this.getDay(date) : ''}</h1>
+        {icon && <img src={icon} alt='Weather Icon' />}
+        <span className='temp'>{Math.round(temp - 273.15)}°C</span>
+      </div>
+    );
+  }
 
 
 }
