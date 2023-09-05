@@ -1,35 +1,57 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './App.css';
+import MainWeatherWindow from './components/MainWeatherWindow';
+import CityInput from './components/CityInput';
+import WeatherBox from './components/WeatherBox';
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+
+
+class App extends React.Component {
+  state = {
+    city: undefined,
+    days: new Array(5)
+  };
+
+  
+
+  updateState = data => {
+    const city = data.city.name;
+    const days = [];
+    const dayIndices = this.getDayIndices(data);
+
+    for (let i = 0; i < 5; i++) {
+      days.push({
+        date: data.list[dayIndices[i]].dt_txt,
+        weather_desc: data.list[dayIndices[i]].weather[0].description,
+        icon: data.list[dayIndices[i]].weather[0].icon,
+        temp: data.list[dayIndices[i]].main.temp
+      });
+    }
+
+    this.setState({
+      city: city,
+      days: days
+    });
+  };
+
+
+  
+  makeApiCall = async city => {
+    const api_data = await fetch(
+      `https://api.openweathermap.org/data/2.5/forecast?q=${city}&APPID=6557810176c36fac5f0db536711a6c52`
+    ).then(resp => resp.json());
+
+    if (api_data.cod === '200') {
+      await this.updateState(api_data);
+      return true;
+    } else return false;
+  };
 }
 
+  
+
+
 export default App
+
