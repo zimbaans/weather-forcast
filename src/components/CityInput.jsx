@@ -20,6 +20,5 @@ export default class CityInput extends React.Component {
         e.target.value = '';
       }
     };
-  }
+      }
 }
-
